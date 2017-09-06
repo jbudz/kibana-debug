@@ -1,0 +1,36 @@
+{
+  "error": {
+    "properties": {
+      "timestamp": {
+        "type": "date"
+      },
+      "source": {
+        "type": "keyword"
+      },
+      "message": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 2048
+          }
+        }
+      },
+      "error": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 2048
+          }
+        }
+      },
+      "line": {
+        "type": "long"
+      },
+      "column": {
+        "type": "long"
+      }
+    }
+  }
+}
