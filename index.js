@@ -1,16 +1,9 @@
-import { errorApi } from './server';
-import mappings from './mappings.json';
+import { browserErrors } from './plugins/browser_errors';
+import { heapDump } from './plugins/heap_dump';
 
-export default (kibana) => {
-  return new kibana.Plugin({
-    uiExports: {
-      hacks: [
-        'plugins/error/index'
-      ],
-      mappings
-    },
-    init: function (server) {
-      errorApi(server);
-    }
-  });
-};
+export default function (kibana) {
+  return [
+    browserErrors(kibana),
+    heapDump(kibana)
+  ];
+}
